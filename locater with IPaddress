@@ -7,9 +7,9 @@ if len(sys.argv) < 2:
     print("usage: "+sys.argv[0]+"<url>")
     sys.exit(1)
 
-gethostby_ = socket gethostbyname(sys.argv[1])
+gethostby_ = socket.gethostbyname(sys.argv[1])
 print("The IP Address of website "+sys.argv[1]+" is: "+gethostby_)
-req_api = request.get("https://ipinfo.io/"+gethostby_+"/json")
+req_api = requests.get("https://ipinfo.io/"+gethostby_+"/json")
 api_res = json.loads(req_api.text)
 
 print("The IP Address "+gethostby_+"belongs to "+api_res['org'])
